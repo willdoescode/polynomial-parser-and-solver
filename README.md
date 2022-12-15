@@ -5,3 +5,5 @@
 ```bash
 $ ghc Main.hs && ./Main x^2 - 8x + 12
 ```
+
+![screenshot](assets/img.png)
