@@ -18,8 +18,6 @@ main = do
     typeOfSol = typeOfSolutions discrim
     outText = "The equation " ++ equation ++ " has " ++ show typeOfSol
 
--- putStrLn $ "The equation " ++ equation ++ " has " ++ show (typeOfSolutions discrim) ++ " which are: " ++ show r1 ++ " and " ++ show r2
-
 solve ::
   [Tokens] ->
   ( Double, -- Root 1
