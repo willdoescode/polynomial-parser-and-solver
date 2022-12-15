@@ -1,2 +1,3 @@
-Main*
-!Main.hs
+*.hi
+*.o
+Main

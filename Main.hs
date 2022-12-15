@@ -1,25 +1,33 @@
 module Main where
 
+import Data.Text (strip, unpack)
 import General
 import StandardFormParser
+import System.Environment
 import Text.Parsec
 import Text.Parsec.String
 import Tokens
 
 main :: IO ()
 main = do
+  e <- unwords <$> getArgs
+
+  -- let equation = "x^2 - 8x + 12"
+  -- print $ e == equation
+
+  let t = parseTerms e
+  let (r1, r2, discrim) = solve t
+  let typeOfSol = typeOfSolutions discrim
+  let outText = "The equation " ++ e ++ " has " ++ show typeOfSol
+
   if typeOfSol == NoRealSolutions
     then putStrLn outText
     else putStrLn $ outText ++ " which are: " ++ show r1 ++ " and " ++ show r2
 
   print t
   print (r1, r2, discrim)
-  where
-    equation = "x^2 - 8x + 12"
-    t = parseTerms equation
-    (r1, r2, discrim) = solve t
-    typeOfSol = typeOfSolutions discrim
-    outText = "The equation " ++ equation ++ " has " ++ show typeOfSol
+
+-- where
 
 solve ::
   [Tokens] ->

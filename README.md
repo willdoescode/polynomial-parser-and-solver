@@ -3,5 +3,5 @@
 ### Bored in math class
 
 ```bash
-$ ghc Main.hs && ./Main
+$ ghc Main.hs && ./Main x^2 - 8x + 12
 ```
